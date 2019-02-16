@@ -2,5 +2,5 @@
  (names array_sorter)
   (public_names array-sorter)
   (modules array_sorter SortUtil)
-  (libraries core ysc2229-part-one)
+  (libraries ysc2229-part-one)
   (package ysc2229-part-one))

@@ -2,5 +2,5 @@
  (name ysc2229_part_one)
  (public_name ysc2229-part-one)
   (wrapped false)
-  (libraries core batteries)
+  (libraries)
   (synopsis "First six weeks of YSC2229"))
