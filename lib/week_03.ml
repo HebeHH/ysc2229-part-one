@@ -339,38 +339,3 @@ let merge_sort_inv arr =
       assert (merge_post from1 from2 a lo hi)
   in
   sort arr
-
-
-(* TODO: Write tests on this! *)
-
-(* EXERCISE: Fast merge-sort *)
-
-let better_merge aux lo mid hi dest =
-  let i = ref lo in
-  let j = ref mid in
-  for k = lo to hi - 1 do
-    aux.(k) <- dest.(k)
-  done;
-  for k = lo to hi - 1 do
-    if !i >= mid
-    then (dest.(k) <- aux.(!j); j := !j + 1)
-    else if !j >= hi
-    then (dest.(k) <- aux.(!i); i := !i + 1)
-    else if fst aux.(!i) <= fst aux.(!j)
-    then (dest.(k) <- aux.(!i); i := !i + 1)
-    else (dest.(k) <- aux.(!j); j := !j + 1)
-  done
-
-let fast_merge_sort arr = 
-  let len = Array.length arr in
-  let aux = copy_array arr 0 len in
-
-  let rec sort lo hi = 
-    if hi - lo <= 1 then ()
-    else
-      let mid = lo + (hi - lo) / 2 in
-      sort lo mid; sort mid hi;
-      better_merge aux lo mid hi arr
-
-  in
-  sort 0 len
