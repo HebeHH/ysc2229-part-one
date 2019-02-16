@@ -9,8 +9,8 @@ https://ilyasergey.net/YSC2229
 
 ## Project Structure 
 
-The libraries are defined in the correswopnding files under `lib` and
-the executables are `runners`.
+The project only contains libraries, which are all are defined in
+thefolder `lib`.
 
 To build everything that is meant to be installed in this project,
 type:

@@ -1,6 +1,6 @@
 # Invoke `make` to build, `make clean` to clean up, etc.
 
-.PHONY: default all utop test clean docker zilliqa-docker
+.PHONY: default all clean
 
 default: all
 
@@ -10,7 +10,6 @@ default: all
 # The flag "--profile release" is passed to avoid warnings-as-errors
 all:
 	dune build --profile release @install 
-	@test -L bin || ln -s _build/install/default/bin .
 
 # Clean up
 clean:
