@@ -4,7 +4,7 @@
 
 Creating the new REPL:
 
- ocamlmktop -o mytoplevel week_01.ml week_02.cmo week_03.cmo week_04.cmo
+ ocamlmktop -o mytoplevel week_01.cmo week_02.cmo week_03.cmo week_04.cmo
 
 Then just load ./mytoplevel as your REPL command (instead of ocaml).
 

@@ -34,7 +34,7 @@ module AP = ArrayPrinter(KV)
 
 (* TODO: 
 
-0. Deploy via opam
+0. Deploy locally via opam as libraries
 1. parse command-line arguments 
 2. Read from file
 3. Write to file
