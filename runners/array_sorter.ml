@@ -51,5 +51,4 @@ let () =
   let open SortUtil in 
   test_msg "foo";
   print_array arr; print_newline ()
-      
-]
+     
