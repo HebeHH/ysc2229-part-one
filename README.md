@@ -22,14 +22,19 @@ install required opam packages using the commands listed below:
 
 ```
 opam init -y
-opam install -y core batteries oUnit dune fileutils
+opam install -y dune
 ```
 
 Next, to build the project, simply type:
 
 ```
-dune build @install
+make
 ```
+
+### Installing the project as a library
+
+
+
 
 ## Extending using the libraries
 

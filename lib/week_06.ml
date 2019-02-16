@@ -13,7 +13,6 @@ Then just load ./mytoplevel as your REPL command (instead of ocaml).
 open Week_01
 open Week_03
 open Week_04
-open Week_05
 
 (* Linked objects *)
 
