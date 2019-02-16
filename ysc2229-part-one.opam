@@ -1,0 +1,10 @@
+opam-version: "2.0"
+version: "1.0"
+maintainer: "ilya.sergey@yale-nus.edu.sc"
+authors: ["Ilya Sergey"]
+homepage: "https://ilyasergey.net/YSC2229/"
+dev-repo: "git@github.com:ilyasergey/ysc2229-part-one.git"
+license: "MIT"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
