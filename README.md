@@ -18,10 +18,10 @@ type:
 ## Building the Project
 
 Building the project requires OCaml version 4.06.1 or higher. You
-install required opam packages using the commands listed below:
+install required opam packages (specifically, the build tool `dune`)
+using the commands listed below:
 
 ```
-opam init -y
 opam install -y dune
 ```
 
