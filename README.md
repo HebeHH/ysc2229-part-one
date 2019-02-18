@@ -34,7 +34,10 @@ make
 ## Using the Project as a Library
 
 Once successfully built, you can install the contents of the Week 1-6
-of YSC2229 as libraries to use in your own projects.
+of YSC2229 as libraries to use in your own projects. Check out the
+example project explaining how to use the libraries:
+
+https://github.com/ilyasergey/ysc2229-examples
 
 ### Installing the project via opam
 
@@ -63,8 +66,7 @@ See the complementary project [TODO] providing examples on how to use
 
 ## Submitting changes to the project
 
-You can fork the project on GitHub
-(https://github.com/ilyasergey/ysc2229-part-one) for experimentation.
+You can fork the project on GitHub for experimentation.
 
 If you don't like certain functionality and know how to fix it, you
 can also file Pull Requests to the master repository via GitHub
