@@ -270,7 +270,7 @@ val q : '_weak103 ArrayBasedQueue.t = <abstr>
 
 (* 5. doubly-linked lists *)
 
-module DoubleLinkedList = 
+module DoublyLinkedList = 
   struct
     type 'e dll_node = {
       value : 'e ref;
@@ -335,7 +335,7 @@ module DoubleLinkedList =
 
 
 module DLLBasedQueue : Queue = struct
-  open DoubleLinkedList
+  open DoublyLinkedList
     
     type 'e t = {
       head : 'e dll_node option ref;
