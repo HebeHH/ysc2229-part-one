@@ -61,8 +61,9 @@ To uninstall the package, type in terminal
 opam uninstall ysc2229-part-one
 ```
 
-See the complementary project [TODO] providing examples on how to use
-`ysc2229-part-one` in your development.
+See the
+[complementary project](https://github.com/ilyasergey/ysc2229-examples)
+with examples on how to use `ysc2229-part-one` in your development.
 
 ## Submitting changes to the project
 
