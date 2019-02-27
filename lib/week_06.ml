@@ -151,66 +151,6 @@ module type Queue =
     val queue_to_list : 'e t -> 'e list
   end
 
-(* 4. Queue based on arrays *)
-
-module ArrayBasedQueue : Queue = 
-  struct
-    type 'e t = {
-      elems : 'e option array;
-      head : int ref;
-      tail : int ref;
-      size : int    
-    }
-    let mk_queue sz = {
-      elems = Array.make sz None;
-      head = ref 0;
-      tail = ref 0;
-      size = sz
-    }
-    let is_empty q = 
-      !(q.head) = !(q.tail) &&
-      q.elems.(!(q.head)) = None
-    let is_full q = 
-      !(q.head) = !(q.tail) &&
-      q.elems.(!(q.head)) <> None
-
-    let enqueue q e = 
-      if is_full q
-      then raise (Failure "The queue is full!")
-      else (
-        let tl = !(q.tail) in
-        q.elems.(tl) <- Some e;
-        q.tail := 
-          if tl = q.size - 1 
-          then 0 
-          else tl + 1)
-                       
-    let dequeue q = 
-      if is_empty q
-      then None
-      else (
-        let hd = !(q.head) in
-        let res = q.elems.(hd) in
-        q.elems.(hd) <- None; 
-        q.head := 
-          (if hd = q.size - 1 
-          then 0 
-          else hd + 1);
-        res)
-
-    let queue_to_list q = 
-      let hd = !(q.head) in
-      let tl = !(q.tail) in
-      if is_empty q then [] 
-      else if hd < tl then
-        List.map get_exn (array_to_list hd (tl + 1) q.elems)
-      else 
-        let l1 = array_to_list hd q.size q.elems in
-        let l2 = array_to_list 0 tl q.elems in
-        List.map get_exn (l1 @ l2)
-
-end
-
 module QueuePrinter(Q: Queue) = struct
 
   let print_queue q pp = 
@@ -222,50 +162,8 @@ module QueuePrinter(Q: Queue) = struct
   end
 
 
-module ABQPrinter = QueuePrinter(ArrayBasedQueue)
 
-(* let pp e = match e with
- *   | Some (k, v) -> Printf.sprintf "(%d, %s)" k v
- *   | None -> "None" *)
-
-let pp (k, v) = Printf.sprintf "(%d, %s)" k v
-
-let _print_queue q = ABQPrinter.print_queue q pp
-
-(*
-# open ArrayBasedQueue;;
-# let q = mk_queue 10;;
-val q : '_weak103 ArrayBasedQueue.t = <abstr>
-# for i = 0 to 9 do enqueue q a.(i) done;;
-- : unit = ()
-# _print_queue q;;
-[(7, sapwd); (3, bsxoq); (0, lfckx); (7, nwztj); (5, voeed); (9, jtwrn); (8, zovuq); (4, hgiki); (8, yqnvq); (3, gjmfh); ]
-- : unit = ()
-# a;;
-- : (int * string) array =
-[|(7, "sapwd"); (3, "bsxoq"); (0, "lfckx"); (7, "nwztj"); (5, "voeed");
-  (9, "jtwrn"); (8, "zovuq"); (4, "hgiki"); (8, "yqnvq"); (3, "gjmfh")|]
-# is_full q;;
-- : bool = true
-# dequeue q;;
-- : (int * string) option = Some (7, "sapwd")
-# dequeue q;;
-- : (int * string) option = Some (3, "bsxoq")
-# dequeue q;;
-- : (int * string) option = Some (0, "lfckx")
-# print_queue q;;
-[(7, nwztj); (5, voeed); (9, jtwrn); (8, zovuq); (4, hgiki); (8, yqnvq); (3, gjmfh); ]
-- : unit = ()
-# enqueue q (13, "lololo");;
-- : unit = ()
-# print_queue q;;
-[(7, nwztj); (5, voeed); (9, jtwrn); (8, zovuq); (4, hgiki); (8, yqnvq); (3, gjmfh); (13, lololo); ]
-- : unit = ()
-# dequeue q;;
-- : (int * string) option = Some (7, "nwztj")
-*)
-
-(* 5. doubly-linked lists *)
+(* 4. Doubly-linked lists *)
 
 module DoublyLinkedList = 
   struct
@@ -417,7 +315,7 @@ val dq : '_weak105 DLLBasedQueue.t = <abstr>
 *)
 
  
-(* 6. Hash-tables *)
+(* 5. Hash-tables *)
 
 module type Hashable = sig
   type t
