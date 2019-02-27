@@ -25,7 +25,6 @@ SOFTWARE.
 
 open Week_01
 open Week_03
-open Week_04
 
 (* Linked objects *)
 
@@ -231,9 +230,7 @@ module ABQPrinter = QueuePrinter(ArrayBasedQueue)
 
 let pp (k, v) = Printf.sprintf "(%d, %s)" k v
 
-let print_queue q = ABQPrinter.print_queue q pp
-
-(* Testing the array-based queue *)
+let _print_queue q = ABQPrinter.print_queue q pp
 
 (*
 # open ArrayBasedQueue;;
@@ -241,7 +238,7 @@ let print_queue q = ABQPrinter.print_queue q pp
 val q : '_weak103 ArrayBasedQueue.t = <abstr>
 # for i = 0 to 9 do enqueue q a.(i) done;;
 - : unit = ()
-# print_queue q;;
+# _print_queue q;;
 [(7, sapwd); (3, bsxoq); (0, lfckx); (7, nwztj); (5, voeed); (9, jtwrn); (8, zovuq); (4, hgiki); (8, yqnvq); (3, gjmfh); ]
 - : unit = ()
 # a;;
