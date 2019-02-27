@@ -61,6 +61,14 @@ To uninstall the package, type in terminal
 opam uninstall ysc2229-part-one
 ```
 
+## Running with utop
+
+From the console, run
+
+```
+dune utop . --profile release
+```
+
 See the
 [complementary project](https://github.com/ilyasergey/ysc2229-examples)
 with examples on how to use `ysc2229-part-one` in your development.
